@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  htmlpdf_api:
+    restart: unless-stopped
+    build:
+      context: ./HtmlPdfApi/
+      dockerfile: ./k8s/Dockerfile.multistage
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+    expose:
+      - 5000

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      SCHEMA DELLE PROPRIETA’ IMMOBILIARI del titolare/soci/garanti e/o
+      dell’impresa
+    </title>
+    <style type="text/css">
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      /*tr, th {
+        border: 0px
+      }*/
+
+      .full {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media print {
+        .pagebreak {
+          page-break-before: always;
+        } /* page-break-after works, as well */
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td,
+        th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        /*tr, th {
+          border: 0px
+        }*/
+      }
+    </style>
+    <!--<script id="handlebars-demo" type="text/x-handlebars-template">
+            
+          </script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>-->
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: row; flex-flow: row-reverse">
+      <div>
+        <div>Spett.le COOPFIDI</div>
+        <div>Guglielmo Massaia, 31</div>
+        <div>00154 ROMA</div>
+      </div>
+    </div>
+    <div>
+      <h2 style="text-align: left; font-weight: bold">
+        <u
+          >SCHEMA DELLE PROPRIETA’ IMMOBILIARI del titolare/soci/garanti e/o
+          dell’impresa</u
+        >
+      </h2>
+      <div>
+        <span style="text-align: left; width: 50%">Il sottoscritto</span>
+        <span style="text-align: left; width: 50%"><u>{{fullName}}</u></span>
+      </div>
+      <div>&nbsp;</div>
+      <div>
+        <span style="text-align: left; width: 50%"
+          >in qualità di titolare/legale rappresentante/garante
+          dell’impresa</span
+        >
+        <span style="text-align: left; width: 50%"
+          ><u>{{denominazione}}</u></span
+        >
+      </div>
+      <div>&nbsp;</div>
+      <div style="text-align: center; width: 100%; font-weight: bold">
+        <span>dichiaro</span>
+      </div>
+      <div>&nbsp;</div>
+      <div>
+        {{#if isProprietario}}
+        <input
+          type="checkbox"
+          id="proprietario"
+          name="proprietario"
+          checked="checked"
+        />
+        {{else}}
+        <input type="checkbox" id="proprietario" name="proprietario" />
+        {{/if}}
+        <label for="scales"
+          >di essere proprietario delle unità immobiliari appresso
+          indicate</label
+        >
+      </div>
+      <div>&nbsp;</div>
+      <div>
+        {{#if isImpresaProprietaria}}
+        <input
+          type="checkbox"
+          id="impresaProprietaria"
+          name="impresaProprietaria"
+          checked="checked"
+        />
+        {{else}}
+        <input
+          type="checkbox"
+          id="impresaProprietaria"
+          name="impresaProprietaria"
+        />
+        {{/if}}
+
+        <label for="horns"
+          >che l’impresa è proprietaria delle unità immobiliari appresso
+          indicate</label
+        >
+      </div>
+      <div>&nbsp;</div>
+      <div>
+        <table>
+          <tr>
+            <th style="text-align: center; width: 20%">
+              <h3>Tipologia</h3>
+            </th>
+            <th style="text-align: center; width: 10%">
+              <h3>% di proprietà</h3>
+            </th>
+            <th style="text-align: center; width: 20%">
+              <h3>Località</h3>
+            </th>
+            <th style="text-align: center; width: 20%">
+              <h3>Valutazione</h3>
+            </th>
+            <th style="text-align: center; width: 10%">
+              <h3>Vincoli</h3>
+            </th>
+            <th style="text-align: center; width: 20%">
+              <h3>Note/Garanzie</h3>
+            </th>
+          </tr>
+          {{#each immobili}}
+          <tr>
+            <td style="text-align: center; width: 20%">{{tipologia}}</td>
+            <td style="text-align: center; width: 10%">{{proprieta}}</td>
+            <td style="text-align: center; width: 20%">{{localita}}</td>
+            <td style="text-align: center; width: 20%">{{valutazione}}</td>
+            <td style="text-align: center; width: 20%">{{vincoli}}</td>
+            <td style="text-align: center; width: 10%">{{note}}</td>
+          </tr>
+          {{/each}}
+        </table>
+      </div>
+      <div>&nbsp;</div>
+      <div>
+        <div style="float: left; width: 30%">
+          <span style="text-align: left; width: 50%; font-weight: bold"
+            >Data</span
+          >
+          <span style="text-align: left; width: 50%"><u>{{data}}</u></span>
+        </div>
+        <div style="float: left; overflow: hidden; width: 40%">&nbsp;</div>
+        <div style="float: right; width: 30%; text-align: right">
+          <span style="width: 50%; font-weight: bold">Timbro e Firma</span>
+          <span style="width: 50%">
+            <signature name="signature1" reason="Test">__________</signature>
+          </span>
+        </div>
+      </div>
+      <div>
+        <span style="text-align: left; width: 10%; color: blue"
+          >Si informa che, qualora le informazioni fornite dall’impresa al
+          momento della richiesta della garanzia risultino, a seguito di
+          successivi accertamenti o dati di fatto, non veritiere e/o
+          inattendibili nonché parziali ovvero deliberatamente incomplete, tali
+          da dissimulare il dissesto o lo stato di insolvenza, la Coopfidi si
+          riserva il diritto di promuovere tutte le azioni nelle opportune sedi
+          giurisdizionali e non, nei confronti sia di chi sottoscrive la
+          presente richiesta, sia dei fideiussori, sia di ogni altro soggetto
+          che, comunque, ne abbia la responsabilità, per ricorso abusivo al
+          credito (art. 32, L 262/2005), nonché, per Insolvenza fraudolenta
+          (art. 641 c.p.), laddove l’obbligazione non sia adempiuta. In tal
+          senso, il sottoscrittore si impegna a fornire a COOPFIDI tutta la
+          documentazione necessaria per l’espletamento della pratica nonché a
+          comunicare alla stessa le successive variazioni che modifichino,
+          sostanzialmente, la situazione patrimoniale.</span
+        >
+      </div>
+    </div>
+    <div style="break-after: page"></div>
+    <!--<script>
+  var template = $('#handlebars-demo').html();
+
+  // Compile the template data into a function
+  var templateScript = Handlebars.compile(template);
+
+  var context = { "name": "Test", "fullName": "Marta Ceprini", "address": "via Po", "documentType": "BO", "documentNumber": "123", "immobili": [{ "1": "test", "2": "test", "3": "test", "4": "test" }] };
+
+  // html = 'My name is Ritesh Kumar. I am a developer.'
+  var html = templateScript(context);
+
+  // Insert the HTML code into the page
+  $(document.body).append(html);
+</script>-->
+  </body>
+</html>
