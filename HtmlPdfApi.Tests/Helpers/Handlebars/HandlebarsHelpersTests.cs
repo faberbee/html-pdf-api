@@ -1,3 +1,4 @@
+using System;
 using HtmlPdfApi.Helpers.Handlebars;
 using Xunit;
 
@@ -51,6 +52,18 @@ namespace HtmlPdfApi.Tests.Helpers.Handlebars
             datastr = new { str = "" };
             result = template(datastr);
             Assert.Equal("empty", result);
+        }
+
+        [Fact]
+        public void FormatDateTime_ReturnsCorrectValues_WhenMatches()
+        {
+            HandlebarsHelpers.RegisterHelper_DateTimeFormatter();
+
+            var template = HandlebarsDotNet.Handlebars.Compile(@"{{formatDateTime arg1 'dd/MM/yyyy'}}");
+            var data = new { arg1 = "2021-12-02T09:00:00.0000000Z" };
+            var result = template(data);
+            Console.WriteLine(result);
+            Assert.Equal("02/12/2021", result);
         }
     }
 }

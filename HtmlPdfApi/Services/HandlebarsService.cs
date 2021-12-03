@@ -13,6 +13,7 @@ namespace HtmlPdfApi.Services
         public HandlebarsService(ILogger<HandlebarsService> logger)
         {
             _logger = logger;
+            HandlebarsHelpers.RegisterHelper_DateTimeFormatter();
             HandlebarsHelpers.RegisterHelper_IfCond();
         }
 

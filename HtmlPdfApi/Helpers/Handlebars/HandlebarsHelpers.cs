@@ -1,3 +1,5 @@
+using System;
+
 namespace HtmlPdfApi.Helpers.Handlebars
 {
     public static class HandlebarsHelpers
@@ -129,6 +131,15 @@ namespace HtmlPdfApi.Helpers.Handlebars
                     }
                 }
             });
+        }
+
+        public static void RegisterHelper_DateTimeFormatter()
+        {
+            HandlebarsDotNet.Handlebars.RegisterHelper("formatDateTime", (output, context, data) =>
+                {
+                    DateTime.TryParse(data[0].ToString(), out DateTime date);
+                    output.Write(date.ToString(data[1].ToString()));
+                });
         }
     }
 }
