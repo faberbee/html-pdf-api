@@ -6,6 +6,7 @@ using iText.Html2pdf.Attach.Impl;
 using HtmlPdfApi.Helpers.Signature;
 using System.Text;
 using HtmlPdfApi.Helpers.Exceptions;
+using iText.Kernel.Pdf;
 
 namespace HtmlPdfApi.Services
 {
@@ -35,13 +36,18 @@ namespace HtmlPdfApi.Services
                 // Init streams
                 using var htmlStream = new MemoryStream(Encoding.UTF8.GetBytes(template));
                 using var pdfStream = new MemoryStream();
+                PdfDocument pdfDocument = new PdfDocument(new PdfWriter(pdfStream));
+
+                // Set orientation if exists custom orientation tag
+                if (template.Contains($"<meta name=\"orientation\" content=\"landscape\" />"))
+                    pdfDocument.SetDefaultPageSize(iText.Kernel.Geom.PageSize.A4.Rotate());
 
                 // Create custom tag
                 ConverterProperties converterProperties = new ConverterProperties()
                     .SetTagWorkerFactory(new SignatureTagWorkerFactory());
 
                 // Convert html to pdf and save to file
-                HtmlConverter.ConvertToPdf(htmlStream, pdfStream, converterProperties);
+                HtmlConverter.ConvertToPdf(htmlStream, pdfDocument, converterProperties);
 
                 _logger.LogInformation("Completed");
                 return pdfStream.ToArray();

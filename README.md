@@ -4,9 +4,13 @@ Print your signable PDF starting from an Handlebars' HTML template.
 
 You can place an empty signature simply including this custom tag:
 
-`<signture name="test" reason="Myreason">&nbsp;</signature>`
+`<signture name="test" reason="Myreason" style="display: inline-block">&nbsp;</signature>`
 
 This tag can be wrapped inside any other div tag in order to give an appropriate dimension.
+
+Optionally you can include a custom html meta tag as following to define page orientation:
+
+`<meta name="orientation" content="landscape" />`
 
 ## Installation
 
