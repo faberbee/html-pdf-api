@@ -18,6 +18,8 @@ This software uses .Net Core 5.0, please install the appropriate SDK before.
 
 Change settings inside HtmlPdfApi/.env file in order to customize url and auth params
 
+To build this application digit `dotnet build` inside the project folder **HtmlPdfApi**.
+
 To run this application in **PRODUCTION MODE** simply digit `dotnet run` inside the project folder **HtmlPdfApi**.
 
 To enable **DEVELOPMENT MODE** set an environment variable `ASPNETCORE_ENVIRONMENT=Development`.
