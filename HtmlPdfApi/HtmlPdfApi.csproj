@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="DotNetEnv" Version="2.2.0" />
-    <PackageReference Include="Handlebars.Net" Version="2.0.9" />
-    <PackageReference Include="itext7.pdfhtml" Version="3.0.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
-    <PackageReference Include="Microsoft.Identity.Web" Version="1.17.0" />
-    <PackageReference Include="Swashbuckle.Aspnetcore" Version="6.2.1" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="DotNetEnv" Version="2.3.0"/>
+		<PackageReference Include="Handlebars.Net" Version="2.1.1"/>
+		<PackageReference Include="itext7.pdfhtml" Version="4.0.1"/>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.3"/>
+		<PackageReference Include="Microsoft.Identity.Web" Version="1.23.1"/>
+		<PackageReference Include="Swashbuckle.Aspnetcore" Version="6.3.0"/>
+	</ItemGroup>
 </Project>
