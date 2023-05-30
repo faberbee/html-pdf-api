@@ -55,6 +55,27 @@ namespace HtmlPdfApi.Tests.Helpers.Handlebars
         }
 
         [Fact]
+        public void InArray_ReturnsCorrectValues_WhenMatches()
+        {
+            HandlebarsHelpers.RegisterHelper_InArray();
+
+            var template = HandlebarsDotNet.Handlebars.Compile(@"{{#inArray arg1 'test'}}OK{{else}}NO{{/inArray}}");
+            string[] arg1 = { "test", "test2" };
+            var data = new { arg1 };
+            var result = template(data);
+            Assert.Equal("OK", result);
+
+            arg1 = new string[] { };
+            data = new { arg1 };
+            result = template(data);
+            Assert.Equal("NO", result);
+
+            var data2 = new { other = 2 };
+            result = template(data2);
+            Assert.Equal("ifCond:args[0] undefined", result);
+        }
+
+        [Fact]
         public void FormatDateTime_ReturnsCorrectValues_WhenMatches()
         {
             HandlebarsHelpers.RegisterHelper_DateTimeFormatter();

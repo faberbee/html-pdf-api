@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace HtmlPdfApi.Helpers.Handlebars
 {
@@ -129,6 +131,42 @@ namespace HtmlPdfApi.Helpers.Handlebars
                             }
                             break;
                     }
+                }
+            });
+        }
+
+        public static void RegisterHelper_InArray()
+        {
+            HandlebarsDotNet.Handlebars.RegisterHelper("inArray", (writer, options, context, args) =>
+            {
+                if (args.Length != 2)
+                {
+                    writer.Write("ifCond:Wrong number of arguments");
+                    return;
+                }
+                if (args[0] == null || args[0].GetType().Name == "UndefinedBindingResult")
+                {
+                    writer.Write("ifCond:args[0] undefined");
+                    return;
+                }
+                if (args[1] == null || args[1].GetType().Name == "UndefinedBindingResult")
+                {
+                    writer.Write("ifCond:args[1] undefined");
+                    return;
+                }
+
+                try
+                {
+                    List<string> val1 = JsonConvert.DeserializeObject<List<string>>(JsonConvert.SerializeObject(args[0]));
+                    string val2 = args[1].ToString();
+                    if (val1.IndexOf(val2) > -1)
+                        options.Template(writer, context);
+                    else
+                        options.Inverse(writer, context);
+                }
+                catch (Exception ex)
+                {
+                    options.Inverse(writer, context);
                 }
             });
         }

@@ -14,6 +14,7 @@ namespace HtmlPdfApi.Services
         {
             _logger = logger;
             HandlebarsHelpers.RegisterHelper_DateTimeFormatter();
+            HandlebarsHelpers.RegisterHelper_InArray();
             HandlebarsHelpers.RegisterHelper_IfCond();
         }
 
