@@ -1,4 +1,5 @@
 using System;
+using HtmlPdfApi.Helpers.Config;
 using HtmlPdfApi.Helpers.Exceptions;
 using HtmlPdfApi.Helpers.HealthChecks;
 using HtmlPdfApi.Helpers.Http;
@@ -20,7 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configure app configuration
 builder.Host.ConfigureAppConfiguration(configurationBuilder =>
 {
-    DotNetEnv.Env.Load();
+    DotEnv.Load();
 });
 
 // Configure services

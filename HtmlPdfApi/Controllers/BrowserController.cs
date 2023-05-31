@@ -48,7 +48,9 @@ namespace HtmlPdfApi.Controllers
         [ExceptionsInterceptor(typeof(ApiExceptions.PdfCreationException), HttpStatusCode.InternalServerError)]
         public async Task<IActionResult> Print([FromBody] BrowserDto body)
         {
-            _logger.LogInformation($"Try to print resource {body.resourceUrl} ... ");
+            string resourceUrl = body.resourceUrl;
+
+            _logger.LogInformation($"Try to print resource {resourceUrl} ... ");
 
             // Validate scopes
             if (_config.GetValue<bool>("OIDC_AUTH_ENABLED"))
@@ -59,12 +61,12 @@ namespace HtmlPdfApi.Controllers
             }
 
             // Get template
-            string rawTemplate = await _resourceService.GetDocumentResourceAsync(body.resourceUrl);
+            string rawTemplate = await _resourceService.GetDocumentResourceAsync(resourceUrl);
             if (String.IsNullOrEmpty(rawTemplate))
-                throw new ApiExceptions.ResourceException(body.resourceUrl);
+                throw new ApiExceptions.ResourceException(resourceUrl);
 
             // Add static resources url
-            Uri uri = new Uri(body.resourceUrl);
+            Uri uri = new Uri(resourceUrl);
             string staticPath = uri.AbsoluteUri.Replace("/" + uri.Segments[uri.Segments.Count() - 1], "");
             IDictionary<string, object> data = body.data;
             data.Add("STATIC_PATH", staticPath);

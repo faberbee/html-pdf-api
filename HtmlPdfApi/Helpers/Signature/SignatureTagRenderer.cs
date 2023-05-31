@@ -37,6 +37,11 @@ namespace HtmlPdfApi.Helpers.Signature
             var signatureField = PdfSignatureFormField.CreateSignature(drawContext.GetDocument(), occupiedArea);
             signatureField.SetFieldName(nameAttr);
 
+            // New implementation for iText7 v8
+            // PdfFormField signatureField = new SignatureFormFieldBuilder(drawContext.GetDocument(), nameAttr)
+            //     .SetWidgetRectangle(occupiedArea)
+            //     .CreateSignature();
+
             // Set flags
             signatureField.GetWidgets()[0].SetHighlightMode(PdfAnnotation.HIGHLIGHT_OUTLINE).SetFlags(PdfAnnotation.PRINT);
 
