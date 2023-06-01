@@ -15,9 +15,7 @@
             "cwd": "${workspaceFolder}/HtmlPdfApi",
             "stopAtEntry": false,
             "console": "integratedTerminal",
-            "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
-            },
+            "envFile": "${workspaceFolder}/HtmlPdfApi/.env",
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/HtmlPdfApi/Views"
             },
