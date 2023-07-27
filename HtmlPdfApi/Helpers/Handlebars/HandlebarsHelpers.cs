@@ -100,17 +100,17 @@ namespace HtmlPdfApi.Helpers.Handlebars
             {
                 if (args.Length != 2)
                 {
-                    writer.Write("ifCond:Wrong number of arguments");
+                    writer.Write("inArray:Wrong number of arguments");
                     return;
                 }
                 if (args[0] == null || args[0].GetType().Name == "UndefinedBindingResult")
                 {
-                    writer.Write("ifCond:args[0] undefined");
+                    options.Inverse(writer, context);
                     return;
                 }
                 if (args[1] == null || args[1].GetType().Name == "UndefinedBindingResult")
                 {
-                    writer.Write("ifCond:args[1] undefined");
+                    options.Inverse(writer, context);
                     return;
                 }
 
