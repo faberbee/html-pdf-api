@@ -18,7 +18,7 @@ namespace HtmlPdfApi.Helpers.Handlebars
                     throw new ArgumentException("ifCond:Invalid operator");
 
                 // String
-                if (args[0] == null || args[0].GetType().Name == "String" || args[0].GetType().Name == "JValue")
+                if (args[0] == null || args[0].GetType().Name == "UndefinedBindingResult" || args[0].GetType().Name == "String" || args[0].GetType().Name == "JValue")
                 {
                     var val1 = args[0]?.ToString() ?? "";
                     var val2 = args[2]?.ToString() ?? "";
