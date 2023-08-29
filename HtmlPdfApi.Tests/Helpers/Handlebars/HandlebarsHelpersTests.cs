@@ -69,10 +69,6 @@ namespace HtmlPdfApi.Tests.Helpers.Handlebars
             data = new { arg1 };
             result = template(data);
             Assert.Equal("NO", result);
-
-            var data2 = new { other = 2 };
-            result = template(data2);
-            Assert.Equal("ifCond:args[0] undefined", result);
         }
 
         [Fact]

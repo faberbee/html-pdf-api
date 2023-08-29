@@ -2,7 +2,6 @@
 using System.IO;
 using iText.Html2pdf;
 using System;
-using iText.Html2pdf.Attach.Impl;
 using HtmlPdfApi.Helpers.Signature;
 using System.Text;
 using HtmlPdfApi.Helpers.Exceptions;

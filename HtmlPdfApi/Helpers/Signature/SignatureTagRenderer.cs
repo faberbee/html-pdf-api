@@ -32,10 +32,12 @@ namespace HtmlPdfApi.Helpers.Signature
             // Retrieve all necessary properties to create the signature
             string nameAttr = attributes.GetAttribute("name");
             string reasonAttr = attributes.GetAttribute("reason");
+            string requiredAttr = attributes.GetAttribute("required");
 
             // Create field
             var signatureField = PdfSignatureFormField.CreateSignature(drawContext.GetDocument(), occupiedArea);
             signatureField.SetFieldName(nameAttr);
+            signatureField.SetRequired(requiredAttr == "" || requiredAttr == "true");
 
             // New implementation for iText7 v8
             // PdfFormField signatureField = new SignatureFormFieldBuilder(drawContext.GetDocument(), nameAttr)

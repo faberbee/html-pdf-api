@@ -4,7 +4,9 @@ Print your signable PDF starting from an Handlebars' HTML template.
 
 You can place an empty signature simply including this custom tag:
 
-`<signture name="test" reason="Myreason" style="display: inline-block">&nbsp;</signature>`
+`<signture name="test" reason="Myreason" style="display: inline-block" required>&nbsp;</signature>`
+
+(NB: required attribute is optional)
 
 This tag can be wrapped inside any other div tag in order to give an appropriate dimension.
 
