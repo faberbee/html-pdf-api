@@ -35,14 +35,11 @@ namespace HtmlPdfApi.Helpers.Signature
             string requiredAttr = attributes.GetAttribute("required");
 
             // Create field
-            var signatureField = PdfSignatureFormField.CreateSignature(drawContext.GetDocument(), occupiedArea);
+            PdfFormField signatureField = new SignatureFormFieldBuilder(drawContext.GetDocument(), nameAttr)
+                .SetWidgetRectangle(occupiedArea)
+                .CreateSignature();
             signatureField.SetFieldName(nameAttr);
             signatureField.SetRequired(requiredAttr == "" || requiredAttr == "true");
-
-            // New implementation for iText7 v8
-            // PdfFormField signatureField = new SignatureFormFieldBuilder(drawContext.GetDocument(), nameAttr)
-            //     .SetWidgetRectangle(occupiedArea)
-            //     .CreateSignature();
 
             // Set flags
             signatureField.GetWidgets()[0].SetHighlightMode(PdfAnnotation.HIGHLIGHT_OUTLINE).SetFlags(PdfAnnotation.PRINT);
