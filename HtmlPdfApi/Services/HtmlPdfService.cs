@@ -43,6 +43,7 @@ namespace HtmlPdfApi.Services
 
                 // Create custom tag
                 ConverterProperties converterProperties = new ConverterProperties()
+                    .SetCssApplierFactory(new SignatureTagCssApplierFactory())
                     .SetTagWorkerFactory(new SignatureTagWorkerFactory());
 
                 // Convert html to pdf and save to file

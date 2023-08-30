@@ -11,7 +11,7 @@ namespace HtmlPdfApi.Helpers.Signature
 {
     public class SignatureTagRenderer : DivRenderer
     {
-        private IAttributes attributes;
+        private readonly IAttributes attributes;
 
         public SignatureTagRenderer(Div modelElement, IAttributes _attributes) : base(modelElement)
         {

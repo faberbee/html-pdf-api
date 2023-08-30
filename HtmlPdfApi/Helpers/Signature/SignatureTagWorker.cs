@@ -8,7 +8,7 @@ namespace HtmlPdfApi.Helpers.Signature
 {
     public class SignatureTagWorker : DivTagWorker
     {
-        private IAttributes attributes;
+        private readonly IAttributes attributes;
 
         public SignatureTagWorker(IElementNode element, ProcessorContext context) : base(element, context)
         {
@@ -19,8 +19,8 @@ namespace HtmlPdfApi.Helpers.Signature
         {
             // Restituisco l'elemento dopo tutto il processo dato dagli step sopra
             IPropertyContainer baseResult = base.GetElementResult();
-            if (baseResult is Div)
-                ((Div)baseResult).SetNextRenderer(new SignatureTagRenderer((Div)baseResult, attributes));
+            if (baseResult is Div div)
+                div.SetNextRenderer(new SignatureTagRenderer(div, attributes));
             return baseResult;
         }
     }

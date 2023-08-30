@@ -18,7 +18,7 @@ namespace HtmlPdfApi.Helpers.Signature
             {
                 return new SignatureTagWorker(tag, context);
             }
-            return base.GetCustomTagWorker(tag, context);
+            return null;
         }
     }
 }
