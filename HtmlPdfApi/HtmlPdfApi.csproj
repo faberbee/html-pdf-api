@@ -7,7 +7,7 @@
 		<PackageReference Include="Handlebars.Net" Version="2.1.4" />
 		<PackageReference Include="itext7.pdfhtml" Version="5.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.21" />
-		<PackageReference Include="Microsoft.Identity.Web" Version="2.18.1" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="2.19.1" />
 		<PackageReference Include="Swashbuckle.Aspnetcore" Version="6.5.0" />
 		<PackageReference Include="itext7" Version="8.0.1" />
 		<PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.1" />
